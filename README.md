@@ -1,6 +1,6 @@
 # Github Release app
 
-This is a project has setup a webhook to recieve events from this repo when a release happens.
+This project has setup a webhook to recieve events from this repo when a release happens.
 It stores release events in DyanmoDB, which you can list and get by id.
 
 I've built it with the Serverless framework and decided to use Typescript for the first time.
