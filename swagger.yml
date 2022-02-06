@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Github Releases"
+  contact:
+    email: "eric.l.hislop@gmail.com"
+host: "joqab8sh79.execute-api.ap-southeast-2.amazonaws.com"
+schemes:
+- "https"
+paths:
+  /release:
+    get:
+      summary: "Finds all releases"
+      operationId: "findAllReleases"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Release"
+        "400":
+          description: "Invalid status value"
+  /release/{releaseId}:
+    get:
+      summary: "Find release by ID"
+      description: "Returns a single release"
+      operationId: "getreleaseById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "releaseId"
+        in: "path"
+        description: "ID of release to return"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Release"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Release not found"
+definitions:
+  Release:
+    type: "object"
+    properties:
+      updatedAt:
+        type: "integer"
+      createdAt:
+        type: "integer"
+      id:
+        type: "string"      
+        
+  
+externalDocs:
+  description: "Find out more about This Project"
+  url: "https://github.com/EricHislop/github-release"
